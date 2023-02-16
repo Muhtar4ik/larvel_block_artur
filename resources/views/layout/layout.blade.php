@@ -12,13 +12,13 @@
     <title>@yield('title')</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-stand-blog.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="/public/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="/public/assets/css/templatemo-stand-blog.css">
+    <link rel="stylesheet" href="/public/assets/css/owl.css">
 <!--
 
 TemplateMo 551 Stand Blog
@@ -38,15 +38,15 @@ https://templatemo.com/tm-551-stand-blog
     @include('components.footer')
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/vendor/jquery/jquery.min.js"></script>
+    <script src="/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Additional Scripts -->
-    <script src="assets/js/custom.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/slick.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/accordions.js"></script>
+    <script src="/public/assets/js/custom.js"></script>
+    <script src="/public/assets/js/owl.js"></script>
+    <script src="/public/assets/js/slick.js"></script>
+    <script src="/public/assets/js/isotope.js"></script>
+    <script src="/public/assets/js/accordions.js"></script>
 
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field

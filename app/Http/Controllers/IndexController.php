@@ -22,4 +22,14 @@ class IndexController extends Controller
     public function post(){
         return view('post');
     }
+
+    public function signin()
+    {
+        return view('signin');
+    }
+
+    public function signup()
+    {
+        return view('signup');
+    }
 }
