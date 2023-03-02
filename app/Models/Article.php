@@ -15,6 +15,13 @@ class Article extends Model
         "is_published",
         "likes",
         "slug",
-        "user_id"
+        "user_id",
+        "theme"
     ];
+
+
+    public function author()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id')->first();
+    }
 }
