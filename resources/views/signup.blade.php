@@ -19,20 +19,13 @@
                         <h2>Send us a message</h2>
                       </div>
                       <div class="content">
-                        <form id="contact" action="{{ route('register')}}" method="post">
+                        <form id="contact" action="{{ route('register')}}" method="post" enctype="multipart/form-data">
                           @csrf
                           <div class="row">
 
                             <div class="col-md-12 col-sm12 col-lg-12">
-                              
-                              @if($errors->any())
-                                @foreach ($errors->all() as $error)
-                                <div class="alert alert-danger" role="alert">
-                                {{ $error }}
-                              </div>
-                                @endforeach
-
-                              @endif
+  
+                              @include('components.alerts.error')
                                </div>
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
@@ -69,6 +62,21 @@
                                 <input name="re_password" type="password" id="password" placeholder="*********">
                               </fieldset>
                             </div>
+                            <div class="col-md-12 col-sm-12">
+                              <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                      <span class="input-group-text"
+                                          id="inputGroupFileAddon01">Upload</span>
+                                  </div>
+                                  <div class="custom-file">
+                                      <input name="photo" type="file" class="custom-file-input"
+                                          id="inputGroupFile01"
+                                          aria-describedby="inputGroupFileAddon01">
+                                      <label class="custom-file-label"
+                                          for="inputGroupFile01">Choose file (*.jpg, *.jpeg, *.png)</label>
+                                  </div>
+                              </div>
+                          </div>
                             <div class="col-lg-12">
                               <fieldset style="display: flex; align-items: center; justify-content: flex-start;">
                                   <input

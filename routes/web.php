@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthControlle;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -36,4 +37,6 @@ Route::controller(ArticleController::class)->prefix('/articles')->group(function
     Route::get('/{article:slug}', 'show')->name('article.show');
 
 });
+
+Route::post('/comments/store', [CommentController::class, 'store'])->middleware('auth')->name('comment.store');
 

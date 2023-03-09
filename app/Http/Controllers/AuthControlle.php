@@ -15,26 +15,28 @@ class AuthControlle extends Controller
     public function signup(SingUpRequest $request)
     {
 
-        $request['password'] = Hash::make($request['password']);
+        $validated = $request->validated();
+        $validated['password'] = Hash::make($request['password']);
 
-        $user = User::query()->create([
-            'password' => Hash::make($request['password'])
-        ] + $request->validated());
+        if ($request->file('photo')) {
+            $validated['image_path'] = $request->file('photo')->store('public/images');
+        }
+
+        $user = User::query()->create($validated);
 
         Auth::login($user);
 
         return redirect()->route('home');
-
     }
 
     public function signin(SingInRequest $request)
     {
-        
+
 
         if (!Auth::attempt($request->validated())) {
             return back()
-            ->withErrors(['invalid' => 'Invalid credentials'])
-            ->withInput($request->all());
+                ->withErrors(['invalid' => 'Invalid credentials'])
+                ->withInput($request->all());
         }
 
 
@@ -42,8 +44,8 @@ class AuthControlle extends Controller
             Auth::logout();
 
             return back()
-            ->withErrors(['banned' => 'You are has been blocked! ;3'])
-            ->withInput($request->all());
+                ->withErrors(['banned' => 'You are has been blocked! ;3'])
+                ->withInput($request->all());
         }
 
         return redirect()->route('home');

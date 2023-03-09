@@ -16,7 +16,7 @@
                 <a class="nav-link" href="{{route('about')}}">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{route('blog')}}">Blog Entries</a>
+                <a class="nav-link" href="{{route('article.all')}}">Blog Entries</a>
               </li>
 
               <li class="nav-item">
