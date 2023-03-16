@@ -19,4 +19,11 @@ class ArticleController extends Controller
     {
         return view('post', compact('article'));
     }
+
+    public function delete(Article $article)
+    {
+        $article->delete();
+
+        return back();
+    }
 }
