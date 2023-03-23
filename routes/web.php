@@ -34,17 +34,33 @@ Route::controller(AuthControlle::class)->group(function () {
     Route::get('/logout', 'logout')->name('logout');
 });
 
-Route::controller(ArticleController::class)->prefix('/articles')->group(function() {
-    Route::get('/', 'getArticles')->name('article.all');
+Route::controller(ArticleController::class)->as('article.')->prefix('/articles')->group(function() {
+    Route::get('/', 'getArticles')->name('all');
     
-    
-    Route::get('/{article:slug}', 'show')->name('article.show');
-    
-
     Route::middleware(['auth', AdminMiddleware::class])
         ->group(function() {
-            Route::get('/{article:id}/delete', 'delete')->name('article.delete');
+
+            Route::get('/create', 'createForm')->name('create');
+            Route::post('/craete', 'store')->name('store');
+
+            Route::get('/{article:id}/update', 'updateForm')
+            ->name('updateForm')->where('id', '[0-9]*');
+
+            Route::post('/{article:id}/update', 'update')
+                    ->name('update')->where('id', '[0-9]*');
+
+
+
+            Route::get('/{article:id}/delete', 'delete')
+                    ->name('delete')->where('id', '[0-9]*');
+
+                    
     });
+    
+    Route::get('/{article:slug}', 'show')->name('show');
+    
+
+    
 });
 
 Route::post('/comments/store', [CommentController::class, 'store'])->middleware('auth')->name('comment.store');
@@ -58,6 +74,8 @@ Route::middleware(['auth', AdminMiddleware::class])
     ->group(function() {
         Route::get('/', 'index')->name('index');
 });
+
+
 
 
 

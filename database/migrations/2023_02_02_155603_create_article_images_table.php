@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('aticle_images', function (Blueprint $table) {
+        Schema::create('article_images', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('article_id')
@@ -21,7 +21,6 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
             $table->string('path')->nullable()->default('default.png');
-            $table->timestamps();
         });
     }
 
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aticle_images');
+        Schema::dropIfExists('article_images');
     }
 };

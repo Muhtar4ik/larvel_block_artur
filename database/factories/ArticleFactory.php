@@ -22,7 +22,7 @@ class ArticleFactory extends Factory
             "is_published" => rand(0, 1),
             "likes" => rand(0, 10_000),
             "slug" => str_replace(" ", "-", strtolower(fake()->title() . rand(0, 100))),
-            "user_id" => rand(1, 2)
+            "user_id" => 1
         ];
     }
 }

@@ -9,7 +9,7 @@ class Article extends Model
 {
     use HasFactory;
 
-    protected $filable = [
+    protected $fillable = [
         "title",
         "content",
         "is_published",
